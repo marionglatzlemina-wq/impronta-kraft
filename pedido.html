@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Revisa tu pedido de fundas personalizadas de Impronta Kraft y envíalo por WhatsApp.">
+    <title>Mi pedido | Impronta Kraft</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+
+    <header class="encabezado">
+        <a class="marca" href="index.html" aria-label="Impronta Kraft, inicio">
+            <span class="marca-simbolo">IK</span>
+            <span class="marca-texto">
+                <strong>IMPRONTA</strong>
+                <small>K R A F T</small>
+            </span>
+        </a>
+
+        <nav class="navegacion" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="catalogo.html">Catálogo</a>
+            <a href="nosotros.html">Nosotros</a>
+            
+        </nav>
+
+        <a class="boton-carrito" href="pedido.html">
+            Mi pedido <span class="contador-carrito">0</span>
+        </a>
+    </header>
+
+    <main>
+        <section class="seccion-carrito" id="carrito">
+            <div class="seccion-encabezado">
+                <div>
+                    <span class="etiqueta">TU SELECCIÓN</span>
+                    <h1>Mi pedido</h1>
+                    <p>Revisa tus productos y personalizaciones antes de enviarnos tu pedido.</p>
+                </div>
+            </div>
+
+            <div id="contenido-carrito"></div>
+
+            <div class="resumen-carrito" id="resumen-carrito" hidden>
+                <div class="total-pedido">
+                    <span>Total referencial:</span>
+                    <strong id="total-carrito">$0,00</strong>
+                </div>
+
+                <p>
+                    El precio final y los detalles de entrega se confirmarán
+                    por WhatsApp.
+                </p>
+
+                <button
+                    class="boton boton-secundario"
+                    id="vaciar-carrito"
+                    type="button">
+                    Vaciar pedido
+                </button>
+
+                <button
+                    class="boton boton-principal"
+                    id="enviar-whatsapp"
+                    type="button">
+                    Enviar pedido por WhatsApp
+                </button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="pie-pagina">
+        <a class="marca marca-pie" href="index.html">
+            <span class="marca-simbolo">IK</span>
+            <span class="marca-texto">
+                <strong>IMPRONTA</strong>
+                <small>K R A F T</small>
+            </span>
+        </a>
+
+        <p>Empaques con identidad, creados para destacar.</p>
+        <small>© <span id="anio"></span> Impronta Kraft.</small>
+    </footer>
+
+    <script src="js/productos.js" defer></script>
+    <script src="js/app.js" defer></script>
+</body>
+</html>

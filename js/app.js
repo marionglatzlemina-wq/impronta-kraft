@@ -18,7 +18,6 @@ const CLAVE_CARRITO = "improntaKraftCarrito";
 
 const disenosDisponibles = [
     "Minimalista",
-    "Floral",
     "Elegante"
 ];
 
@@ -174,14 +173,12 @@ function mostrarProductos() {
     listaProductos.innerHTML = productos.map(producto => `
         <article class="producto">
             <div class="producto-imagen">
-                <div class="funda">
-                    <div class="asa"></div>
-                    <div class="funda-logo">IK</div>
-                    <span>tu marca,</span>
-                    <strong>tu esencia.</strong>
-                    <div class="funda-linea"></div>
-                </div>
-            </div>
+    <img
+        src="${escaparHTML(producto.imagen)}"
+        alt="${escaparHTML(producto.nombre)}"
+        loading="lazy"
+    >
+</div>
 
             <div class="producto-detalle">
                 <h3>${escaparHTML(producto.nombre)}</h3>
@@ -753,12 +750,31 @@ if (botonVaciarCarrito) {
         }
     });
 }
-/* Conecta el botón de WhatsApp con la función de envío. */
+
+
+
+/* Gestiona el botón flotante de WhatsApp. */
 const botonEnviarWhatsApp = document.getElementById("enviar-whatsapp");
 
 if (botonEnviarWhatsApp) {
-    botonEnviarWhatsApp.addEventListener("click", enviarPedidoWhatsApp);
+    botonEnviarWhatsApp.addEventListener("click", function (evento) {
+        evento.preventDefault();
+
+        if (Array.isArray(carrito) && carrito.length > 0) {
+            enviarPedidoWhatsApp();
+        } else {
+            const mensaje =
+                "¡Hola! Me interesa conocer más sobre las fundas personalizadas de Impronta Kraft. ¿Podrían brindarme información, por favor?";
+
+            const url =
+                `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensaje)}`;
+
+            window.open(url, "_blank");
+        }
+    });
 }
+
+
 
 /* Inicialización de la página. */
 if (anio) {
